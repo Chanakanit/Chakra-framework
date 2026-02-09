@@ -1,45 +1,30 @@
-import {
-  Box,
-  Image,
-  Text,
-  Heading,
-  Stack,
-  Button,
-} from "@chakra-ui/react";
+import { Box, Image, Text, Heading, Stack, Button } from "@chakra-ui/react";
 
-function ProfileCard({ name, img, desc }) {
+export default function ProfileCard({ name, img, desc }) {
   return (
     <Box
-      bg="white"
-      borderRadius="2xl"
+      borderWidth="1px"
+      borderRadius="xl"
       overflow="hidden"
-      boxShadow="lg"
-      transition="all 0.3s ease"
-      _hover={{
-        transform: "translateY(-8px)",
-        boxShadow: "2xl",
-      }}
+      boxShadow="md"
+      maxW="sm"
+      bg="white"
+      _dark={{ bg: "gray.800", borderColor: "gray.700" }}
+      transition="0.2s"
+      _hover={{ transform: "scale(1.05)", boxShadow: "lg" }}
     >
-      <Image src={img} alt={name} h="220px" w="100%" objectFit="cover" />
+      <Image src={img} alt={name} h="200px" w="100%" objectFit="cover" />
 
-      <Stack p={6} spacing={3}>
+      <Stack spacing={2} p={4}>
         <Heading size="md">{name}</Heading>
-
-        <Text color="gray.600" fontSize="sm">
+        <Text color="gray.600" _dark={{ color: "gray.400" }}>
           {desc}
         </Text>
 
-        <Button
-          mt={2}
-          colorScheme="teal"
-          borderRadius="full"
-          _hover={{ transform: "scale(1.05)" }}
-        >
+        <Button size="sm" colorScheme="teal" alignSelf="start">
           View Profile
         </Button>
       </Stack>
     </Box>
   );
 }
-
-export default ProfileCard;

@@ -1,45 +1,40 @@
-import { Box, SimpleGrid, Heading, Text } from "@chakra-ui/react";
+import { Box, SimpleGrid } from "@chakra-ui/react";
+import Navbar from "./components/Navbar";
 import ProfileCard from "./components/ProfileCard";
+import Footer from "./components/Footer";
 
-function App() {
-  const profiles = [
-    {
-      name: "Big",
-      img: "https://picsum.photos/400/300?1",
-      desc: "นักพัฒนาที่ชอบเรียนรู้สิ่งใหม่ และอยากเป็น Full Stack ในอนาคต",
-    },
-    {
-      name: "Rabbit Lover",
-      img: "https://picsum.photos/400/300?2",
-      desc: "รักสัตว์ โดยเฉพาะกระต่าย หมาน้อย และแมวสุดน่ารัก",
-    },
-    {
-      name: "Dream Builder",
-      img: "https://picsum.photos/400/300?3",
-      desc: "กำลังสร้างเส้นทางของตัวเอง เพื่อไปทำงานต่างประเทศในอนาคต",
-    },
-  ];
+const profiles = [
+  {
+    name: "Big",
+    img: "https://picsum.photos/400/300?1",
+    desc: "Future full‑stack developer who loves learning new things.",
+  },
+  {
+    name: "Rabbit Lover",
+    img: "https://picsum.photos/400/300?2",
+    desc: "Animal lover who enjoys calm and aesthetic moments.",
+  },
+  {
+    name: "Dream Builder",
+    img: "https://picsum.photos/400/300?3",
+    desc: "Building a path to work abroad in the future.",
+  },
+];
 
+export default function App() {
   return (
-    <Box
-      minH="100vh"
-      bgGradient="linear(to-br, teal.50, blue.100)"
-      p={10}
-    >
-      <Heading textAlign="center" mb={2}>
-        My Profile Cards
-      </Heading>
-      <Text textAlign="center" mb={10} color="gray.600">
-        Example beautiful UI with Chakra UI ✨
-      </Text>
+    <Box minH="100vh" bg="gray.50" _dark={{ bg: "gray.900" }}>
+      <Navbar />
 
-      <SimpleGrid columns={[1, 1, 3]} spacing={8} maxW="1000px" mx="auto">
-        {profiles.map((p, i) => (
-          <ProfileCard key={i} {...p} />
-        ))}
-      </SimpleGrid>
+      <Box px={12} py={12}>
+        <SimpleGrid columns={[1, 2, 3]} spacing={8}>
+          {profiles.map((p, i) => (
+            <ProfileCard key={i} {...p} />
+          ))}
+        </SimpleGrid>
+      </Box>
+
+      <Footer />
     </Box>
   );
 }
-
-export default App;
